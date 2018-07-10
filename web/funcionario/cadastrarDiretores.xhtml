@@ -18,11 +18,12 @@
                 <p:dataTable id="dataTable" var="diretor"
                              value="#{diretorBean.all}"
                              widgetVar="tabelaDiretores"
-                             emptyMessage="Nenhum registro encontrado">
-
-                    <p:column headerText="Nome">  
+                             emptyMessage="Nenhum registro encontrado"
+                             filteredValue="#{diretorBean.diretoresFiltrados}">
+                    
+                    <p:column headerText="Nome" filterBy="nome">  
                         <h:outputText value="#{diretor.nome}" />  
-                    </p:column>  
+                    </p:column> 
 
                     <p:column headerText="Ganhador de Oscar">  
                         <h:outputText value="#{diretor.ganhadorOscar}" />  

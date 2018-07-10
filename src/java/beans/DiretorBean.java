@@ -22,6 +22,7 @@ public class DiretorBean implements Serializable {
 
     private Diretor value;
     private boolean consultar;
+    private List<Diretor> diretoresFiltrados;
     
     @PostConstruct
     public void init() {
@@ -62,6 +63,14 @@ public class DiretorBean implements Serializable {
 
     public void setConsultar(boolean consultar) {
         this.consultar = consultar;
+    }
+    
+    public List<Diretor> getDiretoresFiltrados() {
+        return diretoresFiltrados;
+    }
+
+    public void setDiretoresFiltrados(List<Diretor> diretoresFiltrados) {
+        this.diretoresFiltrados = diretoresFiltrados;
     }
 
     public String save() {
