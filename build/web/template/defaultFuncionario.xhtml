@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Video Locadora Sétima Arte</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:outputStylesheet name="css/default.css" />
+            <h:outputStylesheet name="css/overrides.css" />
+            
+            <div style="margin: 0 auto;">
+
+                <h:form id="form"> 
+                
+                    <p:layout fullPage="true" style="text-align:left; min-width:1020px;max-width:1020px;min-height:600px">
+
+                        <p:layoutUnit position="north" size="50" style="text-align: center;">
+                            <h1>Video Locadora Sétima Arte</h1>
+                        </p:layoutUnit>
+
+                        <p:layoutUnit position="south" size="50" style="text-align: center;">
+                            <br /><strong>LPIII - Aplicação Web</strong>
+                        </p:layoutUnit>
+
+                        <p:layoutUnit position="west" size="186">
+                            <p:menu>
+                                <p:menuitem value="Página Inicial" url="/funcionario/index.jsf"></p:menuitem>
+                            </p:menu>
+                            <p:menu>
+                                <p:submenu label="Cadastro de Clientes">
+                                    <p:menuitem value="Cadastrar Clientes" 
+                                                url="/funcionario/cadastrarClientes.jsf" />
+                                    <p:menuitem value="Validar Cadastros Submetidos pelos Clientes" 
+                                                url="/funcionario/index.jsf" />
+                                </p:submenu>
+                                <p:submenu label="Cadastro do Acervo">
+                                    <p:menuitem value="Cadastrar Diretores" 
+                                                url="/funcionario/cadastrarDiretores.jsf" />
+                                    <p:menuitem value="Cadastrar Atores" 
+                                                url="/funcionario/cadastrarAtores.jsf" />
+                                    <p:menuitem value="Cadastrar Filmes" 
+                                                url="/funcionario/cadastrarFilmes.jsf" />
+                                    <p:menuitem value="Cadastrar Cópias de Filmes" 
+                                                url="/funcionario/index.jsf" />
+                                </p:submenu>                                
+                                <p:submenu label="Locações">
+                                    <p:menuitem value="Cadastrar Categorias" 
+                                                url="/funcionario/cadastrarCategorias.jsf" />
+                                    <p:menuitem value="Locar Cópias de Filmes" 
+                                                url="/funcionario/index.jsf" />
+                                    <p:menuitem value="Devolver Cópia de Filme" 
+                                                url="/funcionario/index.jsf" />
+                                </p:submenu>
+                                <p:submenu label="Reservas">
+                                    <p:menuitem value="Reservar Filmes" 
+                                                url="/funcionario/reservarFilmes.jsf" />
+                                </p:submenu>                                
+                                <p:submenu label="Pesquisas">
+                                    <p:menuitem value="Pesquisar Filmes" 
+                                                url="/funcionario/index.jsf" />
+                                    <p:menuitem value="Pesquisar Cópias de Filme" 
+                                                url="/funcionario/index.jsf" />
+                                </p:submenu>                            
+                            </p:menu>
+                            <p:menu>
+                                <p:menuitem value="Sair do Sistema" action="/funcionario/index.jsf" ajax="true" process="@this" icon="ui-icon-close" />
+                            </p:menu>
+                        </p:layoutUnit>
+
+                        <p:layoutUnit position="center" style="padding: 10px;">
+                            <ui:insert name="conteudo"></ui:insert>                    
+                        </p:layoutUnit>
+
+                    </p:layout>
+                    
+                </h:form>
+                
+            </div>
+        </h:body>
+
+    </f:view>
+</html>

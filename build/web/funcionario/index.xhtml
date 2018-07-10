@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/defaultFuncionario.xhtml">
+
+    <ui:define name="conteudo">
+        
+        <h2>Área do Funcionário</h2>
+
+            <p:fieldset legend="Cadastro de Clientes" style="margin-bottom: 20px;">  
+                <h:panelGrid>
+                    <h:outputLink value="cadastrarClientes.jsf">Cadastrar Clientes</h:outputLink>
+                </h:panelGrid>
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Validar Cadastros Submetidos pelos Clientes</h:outputLink>
+                </h:panelGrid>
+            </p:fieldset>  
+
+            <p:fieldset legend="Cadastro do Acervo" style="margin-bottom: 20px;">  
+                <h:panelGrid>
+                    <h:outputLink value="cadastrarDiretores.jsf">Cadastrar Diretores</h:outputLink>
+                </h:panelGrid> 
+                <h:panelGrid>
+                    <h:outputLink value="cadastrarAtores.jsf">Cadastrar Atores</h:outputLink>
+                </h:panelGrid> 
+                <h:panelGrid>
+                    <h:outputLink value="cadastrarFilmes.jsf">Cadastrar Filmes</h:outputLink>
+                </h:panelGrid> 
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Cadastrar Cópias de Filmes</h:outputLink>
+                </h:panelGrid>
+            </p:fieldset>
+
+            <p:fieldset legend="Locações" style="margin-bottom: 20px;">  
+                <h:panelGrid>
+                    <h:outputLink value="cadastrarCategorias.jsf">Cadastrar Categorias</h:outputLink>
+                </h:panelGrid> 
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Locar Cópias de Filmes</h:outputLink>
+                </h:panelGrid>
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Devolver Cópia de Filme</h:outputLink>
+                </h:panelGrid>
+            </p:fieldset>
+
+            <p:fieldset legend="Reservas" style="margin-bottom: 20px;">  
+                <h:panelGrid>
+                    <h:outputLink value="reservarFilmes.jsf">Reservar Filmes</h:outputLink>
+                </h:panelGrid>
+            </p:fieldset>
+
+            <p:fieldset legend="Pesquisas" style="margin-bottom: 20px;">  
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Pesquisar Filmes</h:outputLink>
+                </h:panelGrid>
+                <h:panelGrid>
+                    <h:outputLink value="index.jsf">Pesquisar Cópias de Filme</h:outputLink>
+                </h:panelGrid>
+            </p:fieldset>        
+        
+    </ui:define>
+
+</ui:composition>
