@@ -33,6 +33,10 @@ public class DiretorBean implements Serializable {
         reset();
     }
     
+    public void consultar(Diretor value) {
+        setValue(value);
+    }
+    
     public void reset () {
         value = new Diretor();
     }

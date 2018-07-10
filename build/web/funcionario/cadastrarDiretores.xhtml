@@ -27,8 +27,16 @@
                           <p:column headerText="Ganhador de Oscar">  
                               <h:outputText value="#{diretor.ganhadorOscar}" />  
                           </p:column>
+                          
+                          <p:column headerText="Ação">  
+                            <p:commandButton value="Consultar"
+                                             actionListener="#{diretorBean.consultar(diretor)}"
+                                             oncomplete="panelDiretor.show();"
+                                             update=":form:displayDiretor" />  
+                          </p:column>
 
                       </p:dataTable>
+                      
                         
                     <p:panel>
                       <p:commandButton value="Inserir"
