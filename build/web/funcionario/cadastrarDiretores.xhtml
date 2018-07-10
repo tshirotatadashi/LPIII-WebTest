@@ -73,13 +73,16 @@
                     </h:panelGrid>  
 
                 </p:panel> 
-                <h:panelGroup>
-                    <p:commandButton value="Inserir" action="#{diretorBean.save}"
-                                     ajax="false" icon="ui-icon-circle-plus" />
+                <h:panelGroup rendered="#{!diretorBean.consultar}">
+                    <p:commandButton value="Inserir" action="#{diretorBean.save()}" update="erroDiretor"
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{diretorBean.consultar}">
                     <p:commandButton value="Alterar" action="#{diretorBean.update()}"
-                                     ajax="false" icon="ui-icon-circle-plus" />
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
                     <p:commandButton value="Remover" action="#{diretorBean.delete()}"
-                                     ajax="false" icon="ui-icon-circle-plus" />
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
                 </h:panelGroup>
 
 

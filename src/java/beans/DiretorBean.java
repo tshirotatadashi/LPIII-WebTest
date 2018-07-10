@@ -21,6 +21,7 @@ public class DiretorBean implements Serializable {
     private RequestParameters parameters;
 
     private Diretor value;
+    private boolean consultar;
     
     @PostConstruct
     public void init() {
@@ -31,10 +32,12 @@ public class DiretorBean implements Serializable {
     
     public void inserir() {
         reset();
+        consultar = false;
     }
     
     public void consultar(Diretor value) {
         setValue(value);
+        consultar = true;
     }
     
     public void reset () {
@@ -51,6 +54,14 @@ public class DiretorBean implements Serializable {
 
     public List<Diretor> getAll() {
         return diretorService.getAll();
+    }
+    
+    public boolean isConsultar() {
+        return consultar;
+    }
+
+    public void setConsultar(boolean consultar) {
+        this.consultar = consultar;
     }
 
     public String save() {
