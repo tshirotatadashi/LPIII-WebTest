@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/defaultFuncionario.xhtml">
+
+    <ui:define name="conteudo">
+
+        <h2>Cadastrar Categorias</h2>
+
+        <p:panel header="Categorias Cadastradas">  
+
+            <p:outputPanel id="categoria">
+
+                <p:dataTable id="dataTable" var="categoria"
+                             value="#{categoriaBean.all}"
+                             widgetVar="tabelaCategorias"
+                             emptyMessage="Nenhum registro encontrado"
+                             filteredValue="#{categoriaBean.categoriasFiltradas}">
+
+                    <p:column headerText="Valor">  
+                        <h:outputText value="#{categoria.valor}" />  
+                    </p:column>
+
+                    <p:column headerText="Dias Locação">  
+                        <h:outputText value="#{categoria.diasLocacao}" />  
+                    </p:column>  
+
+                    <p:column headerText="Tipo">  
+                        <h:outputText value="#{categoria.tipo}" />  
+                    </p:column>  
+
+                    <p:column headerText="Ação">  
+                        <p:commandButton value="Consultar"
+                                         actionListener="#{categoriaBean.consultar(categoria)}"
+                                         oncomplete="panelCategoria.show();"
+                                         update=":form:displayCategoria" />  
+                    </p:column>
+
+                </p:dataTable>
+
+                <p:panel>
+                    <p:commandButton value="Inserir"
+                                     actionListener="#{categoriaBean.inserir()}"
+                                     oncomplete="panelCategoria.show();"
+                                     update=":form:displayCategoria" />   
+                </p:panel>
+
+            </p:outputPanel>
+
+        </p:panel>
+
+        <p:panel header="Dados da Categoria" id="dadosCategoria" widgetVar="panelCategoria" 
+                 visible="false" closable="true" style="margin-top:10px;">  
+
+            <p:messages id="erroCategoria"/> 
+
+            <h:panelGrid id="displayCategoria" columns="1" styleClass="grid">
+
+                <p:panel> 
+
+                    <h:panelGrid columns="3" columnClasses="label, value" styleClass="grid">  
+
+                        <h:outputText value="Tipo" />
+                        <p:selectOneMenu id="tipoSelectOneMenu" required="false"
+                                         value="#{categoriaBean.value.tipo}" style="width: 100px;">
+                            <f:selectItems value="#{categoriaBean.getTipos(false)}"/>
+                        </p:selectOneMenu>
+                        <p:message for="tipoSelectOneMenu" />                       
+
+                        <h:outputText value="Valor" />
+                        <p:inputText id="valorInputText" required="false"
+                                     value="#{categoriaBean.value.valor}"/>
+                        <p:message for="valorInputText" />
+
+                        <h:outputText value="Dias Locação" />
+                        <p:inputText id="diasLocacaoInputText" required="false"
+                                     value="#{categoriaBean.value.diasLocacao}"/>
+                        <p:message for="diasLocacaoInputText" />
+
+                    </h:panelGrid>  
+
+                </p:panel> 
+                <h:panelGroup rendered="#{!categoriaBean.consultar}">
+                    <p:commandButton value="Inserir" action="#{categoriaBean.save()}" update=":erroCategoria"
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{categoriaBean.consultar}">
+                    <p:commandButton value="Alterar" action="#{categoriaBean.update()}"
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
+                    <p:commandButton value="Remover" action="#{categoriaBean.delete()}"
+                                     ajax="false" icon="ui-icon-circle-plus" /> 
+                </h:panelGroup>
+            </h:panelGrid>  
+        </p:panel>  
+
+    </ui:define>
+
+</ui:composition>
