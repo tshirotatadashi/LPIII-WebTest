@@ -11,6 +11,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import services.DiretorService;
 
+
 @Named
 @ViewScoped
 public class DiretorBean implements Serializable {
@@ -52,10 +53,6 @@ public class DiretorBean implements Serializable {
     public void setValue(Diretor value) {
         this.value = value;
     }
-
-    public List<Diretor> getAll() {
-        return diretorService.getAll();
-    }
     
     public boolean isConsultar() {
         return consultar;
@@ -63,6 +60,10 @@ public class DiretorBean implements Serializable {
 
     public void setConsultar(boolean consultar) {
         this.consultar = consultar;
+    }
+    
+    public List<Diretor> getAll() {
+        return diretorService.getAll();
     }
     
     public List<Diretor> getDiretoresFiltrados() {
